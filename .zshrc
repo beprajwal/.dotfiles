@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export DISABLE_AUTO_TITLE=true
 
 # include jump around (z) plugin
-# . ~/z.sh
+ . ~/.local/bin/z.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,8 +112,6 @@ eval "$(starship init zsh)"
 # source $(dirname $(gem which colorls))/tab_complete.sh
 
 # Custom aliases
-# alias llc='colorls -lA --sd'
-# alias lc='colorls'
 
 alias ls='lsd'
 alias lsa='lsd -a'
@@ -136,21 +134,16 @@ alias kctl='kubectl'
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Source nvm
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # start ssh agent at the start
-eval $(keychain --eval --quiet ~/.ssh/id_rsa)
-eval $(keychain --eval --quiet ~/.ssh/id_rsa_bitbucket)
+# eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+# eval $(keychain --eval --quiet ~/.ssh/id_rsa_bitbucket)
 
-# bun completions
-[ -s "/home/z3ngis/.bun/_bun" ] && source "/home/z3ngis/.bun/_bun"
 
-# Bun
-# export BUN_INSTALL="/home/z3ngis/.bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/bin/terraform terraform
 
 # Create a new directory and enter it
 function mk() {
@@ -188,8 +181,4 @@ function blamefr() {
 	git blame -w -C -C -C -L $2,$3 $1
 } 
 
-eval $(thefuck --alias)
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# eval $(thefuck --alias)

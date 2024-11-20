@@ -13,9 +13,14 @@ echo "...done"
 
 # move existing dotfiles to old dir and create symlinks
 for file in $files; do
-  echo "Moving ~/$file to $old_dir"
-  mv ~/$file $old_dir/
-  
+  if [ -f ~/$file ]; then
+
+  	echo "Moving ~/$file to $old_dir"
+	mv ~/$file $old_dir/
+  else
+	echo "File $file doesn't exist in the system. Skipping backup.."
+  fi
+
   echo "Creating symlink for $file from the dotfiles"
   ln -s -r $file ~/$file
 done
