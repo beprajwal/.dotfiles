@@ -4,7 +4,7 @@ export PATH="$PATH:$GO/bin"
 export GO_HOME="$HOME/go"
 export PATH="$PATH:$GO_HOME/bin"
 export PATH="$PATH:$HOME/scripts"
-export TERMINAL="alacritty"
+export TERMINAL="ghostty"
 export EDITOR="nvim"
 
 # pyenv
