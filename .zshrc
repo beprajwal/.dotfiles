@@ -126,6 +126,9 @@ alias zsrc='source ~/.zshrc'
 
 alias kctl='kubectl'
 
+alias cursor='~/Appimages/cursor-0.45.14-build-250219jnihavxsz-x86_64.AppImage --no-sandbox "$@" > /dev/null 2>&1 & disown'
+
+
 # Add environment variables to PATH
 # export PATH="$HOME/.sdkman/bin/sdkman-init.sh:$PATH"
 

@@ -6,3 +6,8 @@ export PATH="$PATH:$GO_HOME/bin"
 export PATH="$PATH:$HOME/scripts"
 export TERMINAL="alacritty"
 export EDITOR="nvim"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
