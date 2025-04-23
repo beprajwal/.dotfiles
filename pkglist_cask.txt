@@ -1,0 +1,8 @@
+firefox
+flameshot
+spotify
+slack
+cursor
+zoom
+ghostty
+alacritty

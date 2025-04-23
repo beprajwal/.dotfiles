@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# install packages from the official repository
-echo "Installing packages from apt..."
-xargs sudo apt-get -y install < ./pkglist.txt
+# install packages from homebrew
+echo "Installing packages from homebrew ..."
+xargs brew install < ./pkglist_brew.txt
 echo "...done"
 
-echo "Installing snap packages..."
-xargs sudo snap install < ./pkglist_snap.txt 
+echo "Installing cask packages..."
+xargs brew install --cask < ./pkglist_snap.txt 
 
 # clone tpm for tmux
 echo "Downloading tpm for tmux"

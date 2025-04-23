@@ -1,5 +1,0 @@
-slack
-code
-datagrip
-brave
-postman

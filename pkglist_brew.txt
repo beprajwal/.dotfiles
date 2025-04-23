@@ -1,0 +1,15 @@
+zsh
+tmux
+bat
+fzf
+lsd
+xclip
+thefuck
+keychain
+neovim
+openvpn
+go
+pyenv
+kubernetes-cli
+kubectx
+k9s
