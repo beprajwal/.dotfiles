@@ -13,3 +13,5 @@ pyenv
 kubernetes-cli
 kubectx
 k9s
+uutils-coreutils
+z
