@@ -6,7 +6,7 @@ xargs brew install < ./pkglist_brew.txt
 echo "...done"
 
 echo "Installing cask packages..."
-xargs brew install --cask < ./pkglist_snap.txt 
+xargs brew install --cask < ./pkglist_cask.txt 
 
 # clone tpm for tmux
 echo "Downloading tpm for tmux"
