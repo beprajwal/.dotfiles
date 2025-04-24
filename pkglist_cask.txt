@@ -5,4 +5,3 @@ slack
 cursor
 zoom
 ghostty
-alacritty
