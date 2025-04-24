@@ -9,24 +9,30 @@ echo "Installing cask packages..."
 xargs brew install --cask < ./pkglist_cask.txt 
 
 # clone tpm for tmux
-echo "Downloading tpm for tmux"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 
-# Install other tools/packages without package managers
-echo "Installing ohmyzsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	echo "Downloading tpm for tmux"
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
-# Zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Install other tools/packages without package managers if they don't exist already
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	echo "Installing ohmyzsh"
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+	# Zsh plugins
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
 
 # Install fm6000
-echo "Installing fm6000"
-sh -c "$(curl https://raw.githubusercontent.com/anhsirk0/fetch-master-6000/master/install.sh)"
-
-# Install starship
-curl -sS https://starship.rs/install.sh | sh
+if [ -x "$(command -v fm6000)" ]; then
+	echo "Installing fm6000"
+	sh -c "$(curl https://raw.githubusercontent.com/anhsirk0/fetch-master-6000/master/install.sh)"
+fi
 
 # Install nvm
-echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+if [ -x "$(command -v nvm)" ]; then
+	echo "Installing nvm"
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+fi

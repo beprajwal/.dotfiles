@@ -7,6 +7,9 @@ export PATH="$PATH:$HOME/scripts"
 export TERMINAL="ghostty"
 export EDITOR="nvim"
 
+# make default mac coreutils accessible with 'u' prefix
+PATH="/opt/homebrew/opt/uutils-coreutils/libexec/uubin:$PATH"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
