@@ -5,3 +5,7 @@ slack
 cursor
 zoom
 ghostty
+docker-desktop
+postman
+stremio
+font-jetbrains-mono-nerd-font

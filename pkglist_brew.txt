@@ -16,3 +16,8 @@ k9s
 uutils-coreutils
 z
 starship
+yarn
+postgresql@14
+pgcli
+bitwarden
+btop
