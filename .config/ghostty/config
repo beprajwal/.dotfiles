@@ -1,0 +1,5 @@
+theme = catppuccin-mocha
+
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind

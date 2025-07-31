@@ -4,7 +4,7 @@
 
 # Variables
 old_dir=~/.dotfiles_old
-files=".zshrc .tmux.conf .profile .gitconfig .ssh/config"
+files=".zshrc .tmux.conf .profile .gitconfig .ssh/config .config/ghostty/config"
 
 # Create .dotfiles_old directory in home
 echo "Creating $old_dir for backup of any existing dotfiles in ~"
@@ -15,10 +15,10 @@ echo "...done"
 for file in $files; do
   if [ -f ~/$file ]; then
 
-  	echo "Moving ~/$file to $old_dir"
-	mv ~/$file $old_dir/
+    echo "Moving ~/$file to $old_dir"
+    mv ~/$file $old_dir/
   else
-	echo "File $file doesn't exist in the system. Skipping backup.."
+    echo "File $file doesn't exist in the system. Skipping backup.."
   fi
 
   echo "Creating symlink for $file from the dotfiles"

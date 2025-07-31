@@ -123,6 +123,8 @@ alias zsrc='source ~/.zshrc'
 
 alias kctl='kubectl'
 
+alias python='python3'
+
 # Add environment variables to PATH
 # export PATH="$HOME/.sdkman/bin/sdkman-init.sh:$PATH"
 
@@ -179,3 +181,15 @@ function blamefr() {
 eval $(thefuck --alias)
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# bun completions
+[ -s "/Users/prajwalrajbasnet/.bun/_bun" ] && source "/Users/prajwalrajbasnet/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -21,3 +21,5 @@ postgresql@14
 pgcli
 bitwarden
 btop
+ripgrep
+fd
