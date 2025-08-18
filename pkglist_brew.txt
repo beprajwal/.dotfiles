@@ -23,3 +23,5 @@ bitwarden
 btop
 ripgrep
 fd
+ollama
+helm

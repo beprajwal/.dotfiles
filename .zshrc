@@ -193,3 +193,6 @@ eval "$(pyenv init - zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/prajwalrajbasnet/.opencode/bin:$PATH
