@@ -1,6 +1,11 @@
+Installation scripts and config files for macos based on my taste & usecase. Uses `homebrew` for package management & yabai + skhd for window & workspace management.
+
+## Requirements
+- homebrew
+
 ## Installation
-```shell
-git clone <repo-url> .dotfiles
+```bash
+git clone git@github.com:beprajwal/.dotfiles.git .dotfiles
 
 cd .dotfiles
 
@@ -12,17 +17,21 @@ chmod +x setup.sh install.sh
 
 # setup dotfiles
 ./setup.sh
+```
 
-# give executable permissions to the necessary scripts
+## Give executable permissions to the necessary scripts
 ```bash
     cd scripts && find . -type f -exec chmod +x {} \;
 ```
 
-```
-
-# Start yabai
+## Start yabai
 ```bash
 yabai --start-service
 ```
 
+## Start skhd
+```bash
+skhd --start-service
+```
 
+[System Integrity Protection](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection) might need to be disabled for all the functionalities to work properly.
