@@ -10,6 +10,8 @@ neovim
 openvpn
 go
 pyenv
+nvm
+bun
 kubernetes-cli
 kubectx
 k9s
@@ -25,5 +27,5 @@ ripgrep
 fd
 ollama
 helm
-koekeishiya/formulae/skhd
-koekeishiya/formulae/yabai
+skhd
+yabai
