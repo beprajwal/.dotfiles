@@ -25,3 +25,5 @@ ripgrep
 fd
 ollama
 helm
+koekeishiya/formulae/skhd
+koekeishiya/formulae/yabai

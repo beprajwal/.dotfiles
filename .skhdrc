@@ -1,19 +1,19 @@
-# Spaces
-cmd - 1 : yabai -m space --focus 1
-cmd - 2 : yabai -m space --focus 2
-cmd - 3 : yabai -m space --focus 3
-cmd - 4 : yabai -m space --focus 4
-cmd - 5 : yabai -m space --focus 5
+# Define bindings for spaces based on label to workaround index changes
+cmd - 1 : yabai -m space --focus main
+cmd - 2 : yabai -m space --focus browser
+cmd - 3 : yabai -m space --focus misc
+cmd - 4 : yabai -m space --focus comms
+cmd - 5 : yabai -m space --focus entertainment
+cmd - 6 : yabai -m space --focus others
 
 # move space to displays
-cmd - m : yabai -m space --display 2
-cmd + shift - m : yabai -m space --display 1
+cmd - m : exec ~/.dotfiles/scripts/change-space-display
 
-# Change window focus
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - h : yabai -m window --focus west
-cmd - l : yabai -m window --focus east
+# Vim-like bindings to change window focus
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
 
 # Swap windows
 cmd + shift - j : yabai -m window --swap south
@@ -28,8 +28,19 @@ cmd + shift - t : yabai -m window --toggle float
 cmd + shift - s : yabai -m window --toggle sticky
 
 # Move window to space
-cmd + shift - 1 : yabai -m window --space 1
-cmd + shift - 2 : yabai -m window --space 2
-cmd + shift - 3 : yabai -m window --space 3
-cmd + shift - 4 : yabai -m window --space 4
-cmd + shift - 5 : yabai -m window --space 5
+cmd + shift - 1 : yabai -m window --space main
+cmd + shift - 2 : yabai -m window --space browser
+cmd + shift - 3 : yabai -m window --space misc
+cmd + shift - 4 : yabai -m window --space comms
+cmd + shift - 5 : yabai -m window --space entertainment
+cmd + shift - 6 : yabai -m window --space others
+
+# Application open bindings
+cmd - return : open -n  -a "Ghostty" --args -e "tmux"
+cmd - w : open -n -a "Zen"
+
+# Reload config
+cmd - r : source ~/.yabairc
+
+# Hard reload config
+cmd + shift - r : yabai --restart-service

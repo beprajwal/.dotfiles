@@ -196,3 +196,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
 export PATH=/Users/prajwalrajbasnet/.opencode/bin:$PATH
+
+# System clipboard integration for vim mode buffers
+function zvm_vi_yank() {
+	zvm_yank
+	echo ${CUTBUFFER} | pbcopy
+	zvm_exit_visual_mode
+}
+

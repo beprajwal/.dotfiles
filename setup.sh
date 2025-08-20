@@ -4,7 +4,7 @@
 
 # Variables
 old_dir=~/.dotfiles_old
-files=".zshrc .tmux.conf .profile .gitconfig .ssh/config .config/ghostty/config .yabairc .skhdrc"
+files=".zshrc .tmux.conf .profile .gitconfig .ssh/config .config/ghostty/config .yabairc .skhdrc scripts"
 
 # Create .dotfiles_old directory in home
 echo "Creating $old_dir for backup of any existing dotfiles in ~"

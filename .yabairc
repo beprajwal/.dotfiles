@@ -1,7 +1,6 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-
 # default layout
 yabai -m config layout bsp
 
@@ -12,5 +11,26 @@ yabai -m config left_padding   5
 yabai -m config right_padding  5
 yabai -m config window_gap     5
 
+# create spaces with labels on init
+~/.dotfiles/scripts/setup-space 1 main
+~/.dotfiles/scripts/setup-space 2 browser
+~/.dotfiles/scripts/setup-space 3 misc
+~/.dotfiles/scripts/setup-space 4 comms
+~/.dotfiles/scripts/setup-space 5 entertainment
+~/.dotfiles/scripts/setup-space 6 others
+
 # autofocus and autoraise window
 yabai -m config focus_follows_mouse autoraise
+
+# focus window after active space changes
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+
+# focus window after active display changes
+yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[1].id)"
+
+# Assign dedicated spaces for apps
+yabai -m rule --add app="^ghostty$" space=^main
+yabai -m rule --add app="^zen$" space=^browser
+yabai -m rule --add app="^obsidian$" space=^misc
+yabai -m rule --add app="^slack$" space=^comms
+yabai -m rule --add app="^spotify$" space=^entertainment

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# preserve and ensure the space to occupy same space index in new display
+current_space=$(yabai -m query --spaces --space | jq -r '.index')
+current_display=$(yabai -m query --spaces --space | jq -r '.display')
+
+# toggle between display 1 & 2 based on the current display
+target_display=2
+if [[ current_display -eq 1 ]]; then
+  target_display=1
+fi
+
+current_display_spaces=$(yabai -m query --spaces | jq -r --argjson display "$current_display" '.[] | select(.display == $display) | .uuid' | wc -l)
+
+if [[ "$current_display_spaces" -eq 1 ]]; then
+  echo "Creating a new space"
+  yabai -m space --create "$current_display"
+fi
+
+yabai -m space --display "$target_display"
+# yabai -m space --move "$current_space"
