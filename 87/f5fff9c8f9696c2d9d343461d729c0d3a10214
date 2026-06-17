@@ -1,0 +1,19 @@
+.yabairc
+  s_626bd12d19d841::t_92f9c72a4fe773 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "87f5fff9c8f9696c2d9d343461d729c0d3a10214",
+  "prompts": {},
+  "sessions": {
+    "s_626bd12d19d841": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019ed513-691c-7e19-8d55-1cda0433185b",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Prajwal Raj Basnet <44965674+Prajwalrajbasnet@users.noreply.github.com>"
+    }
+  }
+}
