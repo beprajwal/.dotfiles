@@ -1,18 +1,39 @@
 [user]
 	name = Prajwal Raj Basnet
-	email = 44965674+Prajwalrajbasnet@users.noreply.github.com
+  email = 44965674+Prajwalrajbasnet@users.noreply.github.com
+
 [core]
 	editor = vim
+  pager = delta
+	excludesfile = /Users/prajwalrajbasnet/.gitignore_global
 
 [alias]
   co-commit = "!co_authored_commit(){ usage='usage: git commit -m \"Commit message\" --co \"co_author_name\"\n'; while [ \"${#}\" -gt 0 ]; do case \"${1}\" in -m) shift; message="${1}"; shift;; --co) shift; co_author=\"Co-authored-by: \"${1}\"\n\"; co_authors=\"${co_authors}${co_author}\"; shift;; *) shift;; esac; done; if [ -z \"${co_authors}\" ]; then echo ${usage}; exit 1; fi; if [ -z \"${message}\" ]; then echo ${usage}; exit 1; fi; co_authored_message=\"${message}\n\n\n${co_authors}\"; git commit -m \"${co_authored_message}\"; }; co_authored_commit"
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+
 [push]
 	autoSetupRemote = true
+
 [init]
 	defaultBranch = main
+
 [rerere]
 	enabled = true
+
 [column]
 	ui = auto
+
 [maintenance]
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or `light = true`, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
+[trace2]
+	eventTarget = af_unix:stream:/Users/prajwalrajbasnet/.git-ai/internal/daemon/trace2.sock
+	eventNesting = 10

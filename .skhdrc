@@ -10,10 +10,10 @@ cmd - 6 : yabai -m space --focus others
 cmd - m : exec ~/.dotfiles/scripts/change-space-display
 
 # Vim-like bindings to change window focus
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
+alt + shift - j : yabai -m window --focus south
+alt + shift - k : yabai -m window --focus north
+alt + shift - h : yabai -m window --focus west
+alt + shift - l : yabai -m window --focus east
 
 # Swap windows
 cmd + shift - j : yabai -m window --swap south
@@ -21,11 +21,22 @@ cmd + shift - k : yabai -m window --swap north
 cmd + shift - h : yabai -m window --swap west
 cmd + shift - l : yabai -m window --swap east
 
-# toggle tiling
-cmd + shift - t : yabai -m window --toggle float
+# fullscreen space
+cmd - f : yabai -m window --toggle zoom-fullscreen
 
-# toggle sticky
-cmd + shift - s : yabai -m window --toggle sticky
+# toggle float
+alt + shift - f : yabai -m window --toggle float
+
+# layouts
+cmd + shift - s : yabai -m space --layout stack
+cmd + shift - t : yabai -m space --layout bsp
+
+# distroy space
+alt + shift - q : yabai -m space --destroy
+
+# cycle through stack layout
+alt + shift - p : yabai -m window --focus stack.next 
+alt + shift - n : yabai -m window --focus stack.prev
 
 # Move window to space
 cmd + shift - 1 : yabai -m window --space main
@@ -36,11 +47,9 @@ cmd + shift - 5 : yabai -m window --space entertainment
 cmd + shift - 6 : yabai -m window --space others
 
 # Application open bindings
-cmd - return : open -n  -a "Ghostty" --args -e "tmux"
+cmd + shift - return : open -n  -a "Ghostty"
 cmd - w : open -n -a "Zen"
 
 # Reload config
-cmd - r : source ~/.yabairc
+alt + shift - r : source ~/.yabairc
 
-# Hard reload config
-cmd + shift - r : yabai --restart-service

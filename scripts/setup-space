@@ -3,11 +3,11 @@
 idx="$1"
 name="$2"
 
-space=$(yabai -m query --spaces --space "$idx")
+space=$(yabai -m query --spaces | jq -r --argjson idx "$idx" '.[] | select(.index == $idx)')
 
 # if space doesn't exist with the index
 if [ -z space ]; then
-  yabai -m space --create
+  yabai -m space "$idx" --create
 fi
 
 # assign the label

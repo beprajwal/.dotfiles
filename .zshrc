@@ -114,6 +114,7 @@ alias ls='lsd'
 alias lsa='lsd -a'
 alias tree='lsd --tree'
 
+alias d='docker'
 alias dc='docker compose'
 alias vim='nvim'
 
@@ -121,9 +122,14 @@ alias dkrkill='docker ps -q | xargs docker stop'
 
 alias zsrc='source ~/.zshrc'
 
-alias kctl='kubectl'
+alias k='kubectl'
 
 alias python='python3'
+
+alias lzf='ls -al | fzf'
+alias hiz='history | fzf'
+
+alias oc='opencode'
 
 # Add environment variables to PATH
 # export PATH="$HOME/.sdkman/bin/sdkman-init.sh:$PATH"
@@ -178,6 +184,7 @@ function blamefr() {
 	git blame -w -C -C -C -L $2,$3 $1
 } 
 
+
 eval $(thefuck --alias)
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -204,3 +211,16 @@ function zvm_vi_yank() {
 	zvm_exit_visual_mode
 }
 
+# source .profile
+source ~/.profile
+
+# Added by git-ai installer on Mon Jan 12 23:28:51 UTC 2026
+export PATH="/Users/prajwalrajbasnet/.git-ai/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/prajwalrajbasnet/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

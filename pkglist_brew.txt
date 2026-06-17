@@ -29,3 +29,5 @@ ollama
 helm
 skhd
 yabai
+stats
+httpie
