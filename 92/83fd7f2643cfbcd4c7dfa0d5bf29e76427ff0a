@@ -1,0 +1,28 @@
+.zshrc
+  s_a6c64265c27e06::t_10c4caf4f835fc 222
+  s_a6c64265c27e06::t_d9558d88f1f8de 219-221
+  s_a6c64265c27e06::t_4494382e52baa5 133-134
+scripts/aws-sso-refresh.sh
+  s_a6c64265c27e06::t_bc6f16196adf16 1-43,48
+  s_a6c64265c27e06::t_bee24725b89bea 44-47,49-61
+setup.sh
+  s_a6c64265c27e06::t_3948ccbce94103 27-39
+LaunchAgents/com.krane.aws-sso-refresh.plist
+  s_a6c64265c27e06::t_4cc836774faea5 1-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "9283fd7f2643cfbcd4c7dfa0d5bf29e76427ff0a",
+  "prompts": {},
+  "sessions": {
+    "s_a6c64265c27e06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb19c9dd-5730-4cbd-9f5e-6c057ae8a2a1",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Prajwal Raj Basnet <44965674+Prajwalrajbasnet@users.noreply.github.com>"
+    }
+  }
+}
