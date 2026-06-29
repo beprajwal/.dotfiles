@@ -24,3 +24,16 @@ for file in $files; do
   echo "Creating symlink for $file from the dotfiles"
   ln -s -r $file ~/$file
 done
+
+# launchd user agents: symlink each plist into ~/Library/LaunchAgents and load it
+if [ -d LaunchAgents ]; then
+  echo "Setting up launchd agents..."
+  mkdir -p ~/Library/LaunchAgents
+  for plist in LaunchAgents/*.plist; do
+    name=$(basename "$plist")
+    ln -sf "$(pwd)/$plist" ~/Library/LaunchAgents/"$name"
+    launchctl unload ~/Library/LaunchAgents/"$name" 2>/dev/null
+    launchctl load -w ~/Library/LaunchAgents/"$name"
+    echo "Loaded $name"
+  done
+fi

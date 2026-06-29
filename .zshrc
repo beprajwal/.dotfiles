@@ -130,6 +130,8 @@ alias lzf='ls -al | fzf'
 alias hiz='history | fzf'
 
 alias oc='opencode'
+alias cc='claude'
+alias cx='codex'
 
 # Add environment variables to PATH
 # export PATH="$HOME/.sdkman/bin/sdkman-init.sh:$PATH"
@@ -213,6 +215,10 @@ function zvm_vi_yank() {
 
 # source .profile
 source ~/.profile
+
+# AWS SSO: refresh credentials on shell start (silent; opens browser only if a
+# real login is needed). Backgrounded so it never blocks the prompt.
+~/.dotfiles/scripts/aws-sso-refresh.sh --interactive >/dev/null 2>&1 &!
 
 # Added by git-ai installer on Mon Jan 12 23:28:51 UTC 2026
 export PATH="/Users/prajwalrajbasnet/.git-ai/bin:$PATH"
