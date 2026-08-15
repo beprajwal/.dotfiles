@@ -197,14 +197,14 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # bun completions
-[ -s "/Users/prajwalrajbasnet/.bun/_bun" ] && source "/Users/prajwalrajbasnet/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
-export PATH=/Users/prajwalrajbasnet/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # System clipboard integration for vim mode buffers
 function zvm_vi_yank() {
@@ -221,12 +221,58 @@ source ~/.profile
 ~/.dotfiles/scripts/aws-sso-refresh.sh --interactive >/dev/null 2>&1 &!
 
 # Added by git-ai installer on Mon Jan 12 23:28:51 UTC 2026
-export PATH="/Users/prajwalrajbasnet/.git-ai/bin:$PATH"
+export PATH="$HOME/.git-ai/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/prajwalrajbasnet/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
+
+# ck-prism shell completions
+source "$HOME/.ck-prism/completions/ck-prism.zsh"
+
+# Pet
+function prev() {
+  PREV=$(echo `history | tail -n2 | head -n1` | sed 's/[0-9]* //')
+  sh -c "pet new `printf %q "$PREV"`"
+}
+
+function pet-select() {
+  BUFFER=$(pet search --raw --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
+function _pet_move_cursor_to_next_parameter() {
+    match="$(echo "$BUFFER" | perl -nle 'print $& if /<.*?>/')"
+    if [ -n "$match" ]; then
+      default="$(echo "$match" | perl -nle 'print $& if /(?<==).*(?=>)/')"
+      match_len=${#match}
+      default_len=${#default}
+      parameter_offset=${#BUFFER%%$match*}
+
+      CURSOR="$((${parameter_offset} + ${default_len}))"
+      BUFFER="${BUFFER[1,$parameter_offset]}${default}${BUFFER[$parameter_offset+$match_len+1,-1]}"
+    fi        
+}
+
+zle -N _pet_move_cursor_to_next_parameter
+bindkey '^n' _pet_move_cursor_to_next_parameter 
+
+export FZF_CTRL_R_OPTS="
+  --reverse
+  --cycle
+  --info=right
+  --color header:italic
+  --header 'alt+s (pet new)'
+  --preview 'echo {}' --preview-window down:3:hidden:wrap 
+  --bind '?:toggle-preview'
+  --bind 'alt-s:execute(pet new --tag {2..})+abort'"

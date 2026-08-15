@@ -34,6 +34,12 @@
 
 [merge]
     conflictStyle = zdiff3
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [trace2]
 	eventTarget = af_unix:stream:/Users/prajwalrajbasnet/.git-ai/internal/daemon/trace2.sock
-	eventNesting = 10
+	eventNesting = 0
